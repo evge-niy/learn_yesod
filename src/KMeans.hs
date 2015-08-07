@@ -33,7 +33,7 @@ clusterAssignmentPhase centroids points =
                            in M.adjust (p:) chosenCentroid m)
                  initialMap points
 
-newCentroidPhase :: (Vector v, Vectorizable e v) => M.Map м
+newCentroidPhase :: (Vector v, Vectorizable e v) => M.Map v [e] -> [(v, v)]
 newCentroidPhase = M.toList . fmap (centroid . map toVector)
 
 {- kMeans :: (Vector v, Vectorizable e v) => (Int -> [e] -> [v]) -> [e] -> [v]
